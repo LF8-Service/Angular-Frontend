@@ -10,9 +10,9 @@ import {Employee} from "../model/Employee";
   styleUrls: ['./qualification-table.component.css']
 })
 export class QualificationTableComponent implements OnInit {
-  qualifications: Qualification[] = []; // Ваши начальные данные
-  displayedQualifications: Qualification[] = []; // Список для отображения в таблице
-  searchId: number | null = null; // ID для поиска
+  qualifications: Qualification[] = [];
+  displayedQualifications: Qualification[] = [];
+  searchId: number | null = null;
   constructor(private qualificationsService: QualificationService) {
     this.displayedQualifications = this.qualifications;
   }

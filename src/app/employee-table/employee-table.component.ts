@@ -86,12 +86,10 @@ export class EmployeeTableComponent implements OnInit {
         employee.skillSet = qualifications;
 
         if (isCreating) {
-          // Создание сотрудника должно происходить только после успешного получения и установки skillSet
           this.employeeService.createEmployee(employee).subscribe({
             error: (error) => console.error('Error by creating', error)
           });
         } else {
-          // Обновление сотрудника также должно происходить только после установки skillSet
           this.employeeService.updateEmployee(employee.id, employee).subscribe({
             error: (error) => console.error('Error by updating', error)
           });
@@ -129,6 +127,6 @@ export class EmployeeTableComponent implements OnInit {
     const ids = this.getQualificationIdsFromString(employee.temporarySkillSet);
     const qualifications$ = ids.map(id => this.qualificationService.getQualificationById(id));
 
-    return forkJoin(qualifications$); // Используем forkJoin для объединения всех Observable в один
+    return forkJoin(qualifications$);
   }
 }

@@ -1,15 +1,15 @@
 .container {
   display: flex;
   justify-content: space-between;
-  padding: 0 10px; /* Небольшой отступ по бокам */
+  padding: 0 10px;
   flex-direction: column;
 }
 
 .full-width-table {
-  flex-grow: 1; /* Занимает всю доступную ширину */
+  flex-grow: 1;
 }
 
 .half-width-table {
   margin-top: 50%;
-  flex-grow: 0.5; /* Занимает половину доступной ширины */
+  flex-grow: 0.5;
 }

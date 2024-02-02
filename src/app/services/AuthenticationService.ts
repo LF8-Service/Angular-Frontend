@@ -18,7 +18,7 @@ export class AuthenticationService {
       try {
           const responseData: any = await this.http.post(url, requestBody, {headers}).toPromise();
           if (responseData.access_token) {
-              this.token = responseData.access_token; // Сохранение токена
+              this.token = responseData.access_token;
               return responseData.access_token;
           } else {
               console.log('Access token not found');
