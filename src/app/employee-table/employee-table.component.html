@@ -61,7 +61,7 @@
         <button (click)="requestDeletion(employee)">Delete</button>
       </div>
       <div *ngIf="employee.isAwaitingDeletion">
-        <button (click)="confirmDeletion(employees.indexOf(employee))">✓</button>
+        <button (click)="confirmDeletion(employee)">✓</button>
         <button (click)="cancelDeletion(employee)">✕</button>
       </div>
     </td>

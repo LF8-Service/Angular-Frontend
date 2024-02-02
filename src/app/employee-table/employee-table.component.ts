@@ -104,10 +104,10 @@ export class EmployeeTableComponent implements OnInit {
     employee.isAwaitingDeletion = true;
   }
 
-  confirmDeletion(index: number): void {
-    this.employees.splice(index, 1);
+  confirmDeletion(employee: Employee): void {
+    this.employees.splice(this.employees.indexOf(employee), 1);
     this.displayedEmployees = [...this.employees]
-    this.employeeService.deleteEmployee(index).subscribe({
+    this.employeeService.deleteEmployee(employee.id).subscribe({
       error: (error) => {
         console.error('Error by deleting', error);
       }
