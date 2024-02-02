@@ -1,0 +1,42 @@
+<div class="table-controls">
+  <input type="number" [(ngModel)]="searchId" placeholder="Search by ID">
+  <button (click)="searchQualification()">Search</button>
+  <button (click)="resetSearch()">Reset</button>
+  <button (click)="addNewQualification()">Add New Qualification</button>
+</div>
+<table>
+  <thead>
+  <tr class="hl">
+    <th>ID</th>
+    <th>Skill</th>
+    <th>Action</th>
+    <th>Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let qualification of displayedQualifications">
+    <td>{{ qualification.id }}</td>
+    <td>
+      <span *ngIf="!qualification.isEditing">{{ qualification.skill }}</span>
+      <input *ngIf="qualification.isEditing" [(ngModel)]="qualification.skill" type="text">
+    </td>
+    <td>
+      <button *ngIf="!qualification.isEditing" (click)="editRow(qualification)">Edit</button>
+      <button *ngIf="qualification.isEditing && !qualification.isCreating" (click)="saveRow(qualification, false)">Save</button>
+      <button *ngIf="qualification.isEditing && qualification.isCreating"  (click)="saveRow(qualification,true)">Save</button>
+
+    </td>
+    <td>
+    <td>
+      <div *ngIf="!qualification.isAwaitingDeletion">
+        <button (click)="requestDeletion(qualification)">Delete</button>
+      </div>
+      <div *ngIf="qualification.isAwaitingDeletion">
+        <button (click)="confirmDeletion(qualification)">✓</button>
+        <button (click)="cancelDeletion(qualification)">✕</button>
+      </div>
+    </td>
+  </tr>
+  </tbody>
+
+</table>

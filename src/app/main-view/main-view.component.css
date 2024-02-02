@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px; /* Небольшой отступ по бокам */
+  flex-direction: column;
+}
+
+.full-width-table {
+  flex-grow: 1; /* Занимает всю доступную ширину */
+}
+
+.half-width-table {
+  margin-top: 50%;
+  flex-grow: 0.5; /* Занимает половину доступной ширины */
+}
